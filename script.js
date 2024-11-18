@@ -1,4 +1,4 @@
-const input = document.getElementById('searchInput')
+const inputElement = document.getElementById('searchInput')
 const createBtn = document.getElementById('searchBtn')
 const listElement = document.getElementById('list')
 
@@ -11,18 +11,6 @@ function render () {
     
 }
 render()
-createBtn.onclick = function () {
-    if (input.value.length === 0) {
-        return
-    }
-    listElement.insertAdjacentHTML(
-    'beforeend',
-
-    getNoteTemplate(input.value)
-    )
-    input.value = ""
-}
-
 
 function getNoteTemplate(title) {
     return `
@@ -35,3 +23,17 @@ function getNoteTemplate(title) {
         </li>
     `
 }
+
+createBtn.onclick = function () {
+    if (inputElement.value.length === 0) {
+        return
+    }
+    listElement.insertAdjacentHTML(
+    'beforeend',
+
+    getNoteTemplate(inputElement.value)
+    )
+    input.value = ""
+}
+
+
